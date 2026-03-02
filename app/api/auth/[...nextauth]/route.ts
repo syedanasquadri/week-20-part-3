@@ -1,3 +1,4 @@
+import { url } from 'inspector';
 import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
  
@@ -18,7 +19,8 @@ const handler = NextAuth({
                 return user;
             }
         })
-    ]
+    ],
+    secret: process.env.NEXTAUTH_SECRET,
 })
 
 export const GET = handler;
